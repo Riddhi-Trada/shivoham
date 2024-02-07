@@ -62,27 +62,45 @@
 </a>
 
 <div class="sidebar">
-
-
 <nav class="mt-2">
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+  <li class="nav-item">
+    <a href="{{route('admin')}}" class="nav-link"><i class="fa fa-home fa-fw nav-icon"></i><p>Dashboard</p></a>
+  </li>
 
-</li>
+  <li class="nav-item">
+    <a href="{{route('gallery-list')}}" class="nav-link"><i class="fa fa-camera-retro nav-icon"></i><p>Gallery</p></a>
+  </li>
+
+  <li class="nav-item">
+    <a href="{{route('slider-list')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Home Page Slider</p></a>
+  </li>
+
+  <li class="nav-item">
+    <a href="{{route('about-us-edit')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>About Us</p></a>
+  </li>
+
+  <li class="nav-item">
+    <a href="#" class="nav-link"><i class="fa fa-cog fa-fw"></i><p>Settings<i class="fas fa-angle-left right"></i></p></a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{route('logo-edit')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Logo</p></a>
+    </li>
+    <li class="nav-item">
+      <a href="{{route('contact-edit')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Contact Us</p></a>
+    </li>
+  </ul>
+</ul>
 
 
 
-<li class="nav-item">
-<a href="{{route('admin')}}" class="nav-link">
+
+<!-- <li class="nav-item">
+<a href="" class="nav-link">
 <i class="far fa-circle nav-icon"></i>
-<p>Dashboard</p>
+<p>Contact Us</p>
 </a>
-</li>
-
-
-</ul>
-</li>
-
-</ul>
+</li> -->
 </nav>
 
 </div>
