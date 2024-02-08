@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services;
-use App\Helpers\custom;
 use Illuminate\Support\Str;
 
 
@@ -32,7 +31,8 @@ class ServicesController extends Controller
 
         $slug = $request->name != '' ? Str::slug($request->name, '-') : NULL;
         $service = new Services();
-    	$service->name = $slug;
+    	$service->name = $request->name;
+        $service->slug = $slug;
     	$service->description=$request->input('description');
     	if ($request->hasFile('image')) 
         {

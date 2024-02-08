@@ -77,6 +77,14 @@
   </li>
 
   <li class="nav-item">
+    <a href="{{route('offer-list')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Offer Slider</p></a>
+  </li>
+
+  <li class="nav-item">
+    <a href="{{route('testimonial-list')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Testimonial</p></a>
+  </li>
+
+  <li class="nav-item">
     <a href="{{route('service-list')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Services</p></a>
   </li>
 

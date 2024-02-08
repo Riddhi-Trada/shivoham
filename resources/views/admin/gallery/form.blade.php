@@ -22,7 +22,7 @@
                 <div class="card card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">{{$title}}</h3>
-                        <a href="" style="color: white; float: right;">Back</a>
+                        <a href="{{route('gallery-list')}}" style="color: white; float: right;">Back</a>
                     </div>
                     <form  method="POST" enctype="multipart/form-data" action="@if(isset($gallery->id)) {{route('gallery-update',array('id'=>$gallery->id))}} @else {{route('gallery-store')}} @endif">
                     @csrf
