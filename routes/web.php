@@ -43,6 +43,13 @@ Route::post('slider-store','admin\HomeController@store')->name('slider-store');
 Route::get('slider-edit/{id}','admin\HomeController@edit')->name('slider-edit');
 Route::post('slider-update/{id}','admin\HomeController@update')->name('slider-update');
 Route::get('slider-delete/{id}','admin\HomeController@delete')->name('slider-delete');
+
+Route::get('service-list','admin\ServicesController@index')->name('service-list');
+Route::get('service-create','admin\ServicesController@create')->name('service-create');
+Route::post('service-store','admin\ServicesController@store')->name('service-store');
+Route::get('service-edit/{id}','admin\ServicesController@edit')->name('service-edit');
+Route::post('service-update/{id}','admin\ServicesController@update')->name('service-update');
+Route::get('service-delete/{id}','admin\ServicesController@delete')->name('service-delete');
 });
 
 Auth::routes();

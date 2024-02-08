@@ -77,6 +77,10 @@
   </li>
 
   <li class="nav-item">
+    <a href="{{route('service-list')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Services</p></a>
+  </li>
+
+  <li class="nav-item">
     <a href="{{route('about-us-edit')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>About Us</p></a>
   </li>
 

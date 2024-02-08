@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Choose Image</label>
                                 @if(isset($slider->image))
-                                    <img src="{{asset('uploads/slider/'.$slider->image)}}" width="50px" height="50px">
+                                    <img src="{{asset('uploads/slider/'.$slider->image)}}" width="100px" height="100px">
                                 @endif
                                     <input type="file" class="form-control" name="image" id="file" placeholder="Choose File">
                             </div>
