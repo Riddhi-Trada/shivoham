@@ -22,7 +22,7 @@
                 <div class="card card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">{{$title}}</h3>
-                        <a href="" style="color: white; float: right;">Back</a>
+                        <a href="{{route('service-list')}}" style="color: white; float: right;">Back</a>
                     </div>
                     <form  method="POST" enctype="multipart/form-data" action="@if(isset($service->id)) {{route('service-update',array('id'=>$service->id))}} @else {{route('service-store')}} @endif">
                     @csrf

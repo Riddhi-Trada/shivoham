@@ -81,15 +81,15 @@
   </li>
 
   <li class="nav-item">
-    <a href="{{route('testimonial-list')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Testimonial</p></a>
+    <a href="{{route('testimonial-list')}}" class="nav-link"><i class="fa fa-star nav-icon"></i><p>Testimonial</p></a>
   </li>
 
   <li class="nav-item">
-    <a href="{{route('service-list')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Services</p></a>
+    <a href="{{route('service-list')}}" class="nav-link"><i class="fa fa-car nav-icon"></i><p>Services</p></a>
   </li>
 
   <li class="nav-item">
-    <a href="{{route('about-us-edit')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>About Us</p></a>
+    <a href="{{route('about-us-edit')}}" class="nav-link"><i class="fa fa-user nav-icon"></i><p>About Us</p></a>
   </li>
 
   <li class="nav-item">
@@ -99,7 +99,7 @@
       <a href="{{route('logo-edit')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Logo</p></a>
     </li>
     <li class="nav-item">
-      <a href="{{route('contact-edit')}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Contact Us</p></a>
+      <a href="{{route('contact-edit')}}" class="nav-link"><i class="fa fa-phone nav-icon"></i><p>Contact Us</p></a>
     </li>
   </ul>
 </ul>

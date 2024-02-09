@@ -22,7 +22,6 @@
                 <div class="card card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">About Us</h3>
-                        <a href="" style="color: white; float: right;">Back</a>
                     </div>
                     <form  method="POST" enctype="multipart/form-data" action="{{route('about-us-update')}}">
                     @csrf

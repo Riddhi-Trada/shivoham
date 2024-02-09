@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Services</h1>
+                <h1 class="m-0">Offer Slider</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
-                    <li class="breadcrumb-item active">Services</li>
+                    <li class="breadcrumb-item active">Offer Slider</li>
                 </ol>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <div class="card card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">{{$title}}</h3>
-                        <a href="" style="color: white; float: right;">Back</a>
+                        <a href="{{route('offer-list')}}" style="color: white; float: right;">Back</a>
                     </div>
                     <form  method="POST" enctype="multipart/form-data" action="@if(isset($offer->id)) {{route('offer-update',array('id'=>$offer->id))}} @else {{route('offer-store')}} @endif">
                     @csrf
