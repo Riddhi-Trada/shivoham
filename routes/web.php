@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+Route::get('/','frontedcontroller@index')->name('index');
+Route::get('About-Us','frontedcontroller@about')->name('about');
+Route::get('Contact-Us','frontedcontroller@contact')->name('contact');
+Route::get('Gallery','frontedcontroller@gallery')->name('gallery');
+Route::get('Service','frontedcontroller@service')->name('service');
+Route::get('Service-Details','frontedcontroller@servicedetails')->name('servicedetails');
 Route::group(['middleware'=>'auth'],function(){
 
 Route::get('/adminlogin','admin\indexcontroller@index')->name('admin');
