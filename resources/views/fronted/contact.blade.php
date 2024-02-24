@@ -23,9 +23,9 @@
                             <h2>Contact With Us! <span></span></h2>
                         </div>
                         <ul class="contact-details">
-                            <li><i class="fas fa-map-marker-alt"></i>962 Fifth Avenue,<br> New York, NY10022</li>
-                            <li><i class="fas fa-envelope"></i>hello@themeaster.net <br>Yourmail@gmail.com</li>
-                            <li><i class="fas fa-phone"></i>(+123) 456 789 101 <br>+1-302-123-4567</li>
+                            <li><i class="fas fa-map-marker-alt"></i>{{isset($contact->address) ? $contact->address : ''}}</li>
+                            <li><i class="fas fa-envelope"></i>{{isset($contact->email) ? $contact->email : ''}}</li>
+                            <li><i class="fas fa-phone"></i>{{isset($contact->phone_number) ? $contact->phone_number : ''}}</li>
                         </ul>
                     </div>
                 </div>

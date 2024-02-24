@@ -17,16 +17,16 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-sm-6">
                     <div class="about-img">
-                        <img class="about-img1" src="assets/img/about-1.png" alt="img">
-                        <img class="about-img2" src="assets/img/about-2.png" alt="img">
-                        <figure class="round-text"><img src="assets/img/experience-text-round.png" alt="img"></figure>
+                        <img class="about-img1" src="{{asset('uploads/about_us/'.$about->image)}}" alt="img">
+                        <!-- <img class="about-img2" src="assets/img/about-2.png" alt="img"> -->
+                        <!-- <figure class="round-text"><img src="assets/img/experience-text-round.png" alt="img"></figure> -->
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="section-heading mb-40">
                         <h4><span></span>About Our Company</h4>
-                        <h2>Feel the difference and Relaxation with Ridek Taxi Company!</h2>
-                        <p>We successfully cope with tasks of varying complexity, provide long-term guarantees and regularly master new technologies. Our portfolio includes dozens of successfully completed projects of houses of different storeys, with high–quality finishes and good repairs. Book your taxi from anywhare today!</p>
+                        <h2>{{$about->title}}</h2>
+                        <p>{!! $about->description !!}</p>
                     </div>
                     <!--/.section-heading-->
                     <ul class="about-info">
@@ -60,22 +60,26 @@
                 <div class="service-carousel">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-thumb">
-                                    <img src="assets/img/service-1.jpg" alt="img">
-                                    <div class="service-shape-wrap">
-                                        <div class="service-shape"></div>
+                            @if(isset($offer) && $offer->count())
+                                @foreach($offer as $value)
+                                    <div class="service-item">
+                                        <div class="service-thumb">
+                                            <img src="{{asset('uploads/offer/'.$value->image)}}" alt="img">
+                                            <!-- <div class="service-shape-wrap">
+                                                <div class="service-shape"></div>
+                                            </div> -->
+                                            <!-- <div class="service-car"><img src="" alt="car"></div> -->
+                                        </div>
+                                        <div class="service-content">
+                                            <h3><a href="service-details.html">{{$value->title}}</a></h3>
+                                            <p>{{$value->description}}</p>
+                                            <a class="read-more" href="service-details.html">Read More</a>
+                                        </div>
                                     </div>
-                                    <div class="service-car"><img src="assets/img/car-1.png" alt="car"></div>
-                                </div>
-                                <div class="service-content">
-                                    <h3><a href="service-details.html">Regular Transport</a></h3>
-                                    <p>Everything your taxi business needs is already here! Ridek made for taxi service companies!</p>
-                                    <a class="read-more" href="service-details.html">Read More</a>
-                                </div>
-                            </div>
+                                @endforeach
+                            @endif
                         </div>
-                        <div class="swiper-slide">
+                        <!-- <div class="swiper-slide">
                             <div class="service-item">
                                 <div class="service-thumb">
                                     <img src="assets/img/service-2.jpg" alt="img">
@@ -90,8 +94,8 @@
                                     <a class="read-more" href="service-details.html">Read More</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
+                        </div> -->
+                        <!-- <div class="swiper-slide">
                             <div class="service-item">
                                 <div class="service-thumb">
                                     <img src="assets/img/service-3.jpg" alt="img">
@@ -138,7 +142,7 @@
                                     <a class="read-more" href="service-details.html">Read More</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="swiper-pagination"></div><!-- Carousel Dots -->
                 </div>
@@ -162,7 +166,25 @@
                     <div class="swiper-outside testi-pagination">
                         <div class="testimonial-carousel">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
+                                @if(isset($testimonial) && $testimonial->count())
+                                    @foreach($testimonial as $value)
+                                        <div class="swiper-slide">
+                                            <div class="testi-item">
+                                                <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                                <p>{{$value->description}}</p>
+                                                <div class="testi-author">
+                                                    @if($value->image !='' && $value->image)
+                                                        <div class="author-thumb"><img src="{{asset('uploads/testimonial/'.$value->image)}}" alt="author"></div>
+                                                    @endif
+                                                    <div class="author-info">
+                                                        <h3>{{$value->name}}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                                <!-- <div class="swiper-slide">
                                     <div class="testi-item">
                                         <div class="quote-icon"><i class="las la-quote-right"></i></div>
                                         <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
@@ -185,19 +207,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="testi-item">
-                                        <div class="quote-icon"><i class="las la-quote-right"></i></div>
-                                        <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
-                                        <div class="testi-author">
-                                            <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author"></div>
-                                            <div class="author-info">
-                                                <h3>Eredrik Johanson <span>Financial .INC</span></h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="swiper-pagination"></div><!-- Carousel Dots -->
