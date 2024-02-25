@@ -21,11 +21,13 @@
                         <div class="col-lg-4 col-sm-6 padding-15">
                             <div class="service-item">
                                 <div class="service-thumb">
-                                    <img src="assets/img/service-1.jpg" alt="img">
-                                    <div class="service-shape-wrap">
+                                    @if(isset($value->image) && $value->image)
+                                        <img src="{{asset('uploads/service/'.$value->image)}}" alt="img">
+                                    @endif
+                                    <!-- <div class="service-shape-wrap">
                                         <div class="service-shape"></div>
-                                    </div>
-                                    <div class="service-car"><img src="{{asset('uploads/service/'.$value->image)}}" alt="car"></div>
+                                    </div> -->
+                                    <!-- <div class="service-car"><img src="" alt="car"></div> -->
                                 </div>
                                 <div class="service-content">
                                     <h3><a href="{{route('servicedetails')}}">{{$value->name}}</a></h3>

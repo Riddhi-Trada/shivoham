@@ -46,7 +46,7 @@
 }
 
 .about-img:before {
-    background-color: #fcb900;
+    /* background-color: #fcb900; */
     border-radius: 2px;
     transform: skew(-20deg, 0deg);
     content: "";

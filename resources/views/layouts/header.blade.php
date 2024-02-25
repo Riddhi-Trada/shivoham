@@ -153,11 +153,11 @@
             <p>Everything your taxi business needs is already here! Ridek, a theme
                 made for taxi service companies.</p>
             <ul class="sidebox-list">
-                <li class="call"><span>Call for ride:</span>5267-214-392</li>
+                <li class="call"><span>Call for ride:</span>{{isset($contact->phone_number) && $contact->phone_number ? $contact->phone_number : ''}}</li>
                 <li>
-                    <span>You can find us at:</span>Halk Street New York, USA - 2386
+                    <span>You can find us at:</span>{{isset($contact->address) && $contact->address ? $contact->address : ''}}
                 </li>
-                <li><span>Email now:</span>Info.ridek@mail.com</li>
+                <li><span>Email now:</span>{{isset($contact->email) && $contact->email ? $contact->email : ''}}</li>
             </ul>
         </div>
     </div>
@@ -183,7 +183,7 @@
                         <div class="col-lg-4">
                             <div class="footer-call">
                                 <i class="las la-phone-volume"></i>
-                                <p><span>Call For Taxi</span><a href="tel:5267214392">5267-214-392</a></p>
+                                <p><span>Call For Taxi</span><a href="tel:5267214392">{{isset($contact->phone_number) && $contact->phone_number ? $contact->phone_number : ''}}</a></p>
                             </div>
                         </div>
                     </div>
@@ -238,9 +238,9 @@
                                 <h3>Contact Us</h3>
                             </div>
                             <ul class="footer-contact">
-                                <li><span>Phone Number:</span>145689232</li>
-                                <li><span>Email:</span>shivhaminfo@gmail.com</li>
-                                <li><span>Address:</span>Rajkot</li>
+                                <li><span>Phone Number:</span>{{isset($about->phone_number) && $about->phone_number ? $about->phone_number : ''}}</li>
+                                <li><span>Email:</span>{{isset($about->email) && $about->email ? $about->email : ''}}</li>
+                                <li><span>Address:</span>{{isset($about->address) && $about->address ? $about->address : ''}}</li>
                             </ul>
                         </div>
                     </div>
