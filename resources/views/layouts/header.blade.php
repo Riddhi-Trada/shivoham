@@ -53,7 +53,7 @@
                 <div class="mid-header-wrap">
                     <div class="site-logo">
                         @foreach($data1 as $logo)
-                        <a href=""><img src="{{asset('uploads/logo/'.$logo->logo_image)}}" alt="Logo"></a>
+                        <a href=""><img src="{{asset('uploads/white_logo/'.$logo->white_logo)}}" alt="Logo"></a>
                         @endforeach
                     </div><!--/.site-logo-->
                     <ul class="header-info">
@@ -62,7 +62,7 @@
                                 <i class="las la-phone-volume"></i>
                             </div>
                             <div class="header-info-text">
-                                <h3><span>Call us now</span><a href="tel:5267214392">5267-214-392</a></h3>
+                                <h3><span>Call us now</span><a href="tel:5267214392">{{isset($contact->phone_number) && $contact->phone_number ? $contact->phone_number : ''}}</a></h3>
                             </div>
                         </li>
                         <li>
@@ -70,7 +70,7 @@
                                 <i class="las la-envelope-open"></i>
                             </div>
                             <div class="header-info-text">
-                                <h3><span>Email now</span>Info.ridek@mail.com</h3>
+                                <h3><span>Email now</span>{{isset($contact->email) && $contact->email ? $contact->email : ''}}</h3>
                             </div>
                         </li>
                         <li>
@@ -78,7 +78,7 @@
                                 <i class="las la-map-marked-alt"></i>
                             </div>
                             <div class="header-info-text">
-                                <h3><span>Halk Street</span>New York, USA - 2386</h3>
+                                <h3><span>Halk Street</span>{{isset($contact->address) && $contact->address ? $contact->address : ''}}</h3>
                             </div>
                         </li>
                     </ul>
@@ -89,7 +89,9 @@
             <div class="container">
                 <div class="nav-menu-inner">
                     <div class="site-logo">
-                        <a href="index.html"><img src="{{asset('logo.png')}}" alt="Logo"></a>
+                        @foreach($data1 as $logo)
+                            <a href=""><img src="{{asset('uploads/white_logo/'.$logo->white_logo)}}" alt="Logo"></a>
+                        @endforeach
                     </div><!--/.site-logo-->
                     <div class="header-menu-wrap">
                         <ul class="nav-menu">
@@ -151,11 +153,11 @@
             <p>Everything your taxi business needs is already here! Ridek, a theme
                 made for taxi service companies.</p>
             <ul class="sidebox-list">
-                <li class="call"><span>Call for ride:</span>5267-214-392</li>
+                <li class="call"><span>Call for ride:</span>{{isset($contact->phone_number) && $contact->phone_number ? $contact->phone_number : ''}}</li>
                 <li>
-                    <span>You can find us at:</span>Halk Street New York, USA - 2386
+                    <span>You can find us at:</span>{{isset($contact->address) && $contact->address ? $contact->address : ''}}
                 </li>
-                <li><span>Email now:</span>Info.ridek@mail.com</li>
+                <li><span>Email now:</span>{{isset($contact->email) && $contact->email ? $contact->email : ''}}</li>
             </ul>
         </div>
     </div>
@@ -171,7 +173,9 @@
                         <div class="col-lg-8">
                             <div class="brand">
                                 <a class="footer-logo" href="{{route('index')}}">
-                                    <img src="{{asset('footerlogo.png')}}" alt="logo"></a>
+                                @foreach($data1 as $logo)
+                                    <img src="{{asset('uploads/logo/'.$logo->logo_image)}}" alt="logo"></a>
+                                @endforeach
                                 <p>We successfully cope with tasks of varying complexity, provide long-term guarantees
                                     and regularly master new technologies.</p>
                             </div>
@@ -179,7 +183,7 @@
                         <div class="col-lg-4">
                             <div class="footer-call">
                                 <i class="las la-phone-volume"></i>
-                                <p><span>Call For Taxi</span><a href="tel:5267214392">5267-214-392</a></p>
+                                <p><span>Call For Taxi</span><a href="tel:5267214392">{{isset($contact->phone_number) && $contact->phone_number ? $contact->phone_number : ''}}</a></p>
                             </div>
                         </div>
                     </div>
@@ -234,9 +238,9 @@
                                 <h3>Contact Us</h3>
                             </div>
                             <ul class="footer-contact">
-                                <li><span>Phone Number:</span>145689232</li>
-                                <li><span>Email:</span>shivhaminfo@gmail.com</li>
-                                <li><span>Address:</span>Rajkot</li>
+                                <li><span>Phone Number:</span>{{isset($about->phone_number) && $about->phone_number ? $about->phone_number : ''}}</li>
+                                <li><span>Email:</span>{{isset($about->email) && $about->email ? $about->email : ''}}</li>
+                                <li><span>Address:</span>{{isset($about->address) && $about->address ? $about->address : ''}}</li>
                             </ul>
                         </div>
                     </div>

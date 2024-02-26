@@ -1,24 +1,37 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\AboutUs;
+use App\ContactUs;
+use App\Offer;
+use App\Testimonial;
+use App\HomepageSlider;
+use App\Services;
 use Illuminate\Http\Request;
 
 class frontedcontroller extends Controller
 {
     public function index(Request $request)
     {
-    	return view('fronted.index');
+        $homepage_slider = HomepageSlider::get();
+        $about=AboutUs::first();
+        $offer=Offer::get();
+        $testimonial=Testimonial::get();
+    	return view('fronted.index',compact('homepage_slider','about','offer','testimonial'));
     }
 
     public function about(Request $request)
     {
-    	return view('fronted.about');
+        $about=AboutUs::first();
+        $offer=Offer::get();
+        $testimonial=Testimonial::get();
+    	return view('fronted.about',compact('about','offer','testimonial'));
     }
 
     public function contact()
     {
-    	return view('fronted.contact');
+        $contact=ContactUs::first();
+    	return view('fronted.contact',compact('contact'));
     }
 
     public function gallery()
@@ -28,7 +41,8 @@ class frontedcontroller extends Controller
 
     public function service()
     {
-    	return view('fronted.service');
+        $services = Services::get();
+    	return view('fronted.service',compact('services'));
     }
 
     public function servicedetails()

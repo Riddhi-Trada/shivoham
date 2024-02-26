@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Logo;
+use App\ContactUs;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $logo=Logo::all();
         view()->share('data1',$logo);
+
+        $contact = ContactUs::first();
+        view()->share(['data1'=>$logo,'contact' =>$contact]);
     }
 }

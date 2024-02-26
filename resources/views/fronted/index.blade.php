@@ -16,37 +16,39 @@
                         </div>
                     </div>
                     <div class="slider-content-wrap d-flex align-items-center text-left">
-                        <div class="container">
-                            <div class="slider-content">
-                                <div class="slider-caption medium">
-                                    <div class="inner-layer">
-                                        <div data-animation="fade-in-bottom" data-delay="0.3s">Travel securely with us!
+                        @if(isset($homepage_slider) && $homepage_slider->count())
+                            @foreach($homepage_slider as $value)
+                                <div class="container">
+                                    <div class="slider-content">
+                                        <div class="slider-caption medium">
+                                            <div class="inner-layer">
+                                                <div data-animation="fade-in-bottom" data-delay="0.3s">Travel securely with us!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-caption big">
+                                            <div class="inner-layer">
+                                                <div data-animation="fade-in-bottom" data-delay="0.5s">{{$value->title}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-caption small">
+                                            <div class="inner-layer">
+                                                <div data-animation="fade-in-bottom" data-delay="0.7s" data-duration="1s">
+                                                    {{$value->description}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-btn">
+                                            <a href="{{route('service')}}" class="default-btn" data-animation="fade-in-bottom"
+                                                data-delay="0.9s">Book Now</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="slider-caption big">
-                                    <div class="inner-layer">
-                                        <div data-animation="fade-in-bottom" data-delay="0.5s">Book your taxi from
-                                            <br>anywhare today!
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-caption small">
-                                    <div class="inner-layer">
-                                        <div data-animation="fade-in-bottom" data-delay="0.7s" data-duration="1s">
-                                            Everything your taxi business needs is already here! <br>Ridek made for taxi
-                                            service companies!</div>
-                                    </div>
-                                </div>
-                                <div class="slider-btn">
-                                    <a href="{{route('service')}}" class="default-btn" data-animation="fade-in-bottom"
-                                        data-delay="0.9s">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                     <div class="slider-img"><img src="assets/img/slider-bg.jpg" alt="img" class="kenburns"
                             style="animation-duration: 12000ms; "></div>
                     <div class="car-holder">
@@ -87,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- Slider navigation buttons -->
             <div class="slider-controls">
@@ -107,19 +109,18 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="about-img">
-                        <img class="about-img1 wow fade-in-left" data-wow-delay="200ms" src="assets/img/about-1.png" alt="img">
-                        <img class="about-img2 wow fade-in-bottom" data-wow-delay="400ms" src="assets/img/about-2.png" alt="img">
-                        <figure class="round-text"><img src="assets/img/experience-text-round.png" alt="img"></figure>
+                        @if(isset($about->image) && $about->image !='')
+                            <img class="about-img1 wow fade-in-left" data-wow-delay="200ms" src="{{asset('uploads/about_us/'.$about->image)}}" alt="img">
+                        @endif                        
+                        <!-- <img class="about-img2 wow fade-in-bottom" data-wow-delay="400ms" src="assets/img/about-2.png" alt="img">
+                        <figure class="round-text"><img src="assets/img/experience-text-round.png" alt="img"></figure> -->
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="section-heading mb-40 wow fade-in-right" data-wow-delay="200ms">
                         <h4><span></span>About Our Company</h4>
-                        <h2>Feel the difference and Relaxation with Ridek Taxi Company!</h2>
-                        <p>We successfully cope with tasks of varying complexity, provide long-term guarantees and
-                            regularly master new technologies. Our portfolio includes dozens of successfully completed
-                            projects of houses of different storeys, with high–quality finishes and good repairs. Book
-                            your taxi from anywhare today!</p>
+                        <h2>{{isset($about->title) && $about->title ? $about->title : ''}}</h2>
+                        <p>{{isset($about->description) && $about->description ? $about->description : ''}}</p>
                     </div>
                     <!--/.section-heading-->
                     <ul class="about-info wow fade-in-right" data-wow-delay="400ms">
@@ -153,91 +154,26 @@
             <div class="swiper-outside">
                 <div class="service-carousel">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="service-item wow fade-in-bottom" data-wow-delay="200ms">
-                                <div class="service-thumb">
-                                    <img src="assets/img/service-1.jpg" alt="img">
-                                    <div class="service-shape-wrap">
-                                        <div class="service-shape"></div>
+                        @if(isset($offer) && $offer->count())
+                            @foreach($offer as $value)
+                                <div class="swiper-slide">
+                                    <div class="service-item wow fade-in-bottom" data-wow-delay="200ms">
+                                        <div class="service-thumb">
+                                            <img src="{{asset('uploads/offer/'.$value->image)}}" alt="img">
+                                            <!-- <div class="service-shape-wrap">
+                                                <div class="service-shape"></div>
+                                            </div> -->
+                                            <!-- <div class="service-car"><img src="assets/img/car-1.png" alt="car"></div> -->
+                                        </div>
+                                        <div class="service-content">
+                                            <h3><a href="service-details.html">{{$value->title}}</a></h3>
+                                            <p>{{$value->description}}</p>
+                                            <a class="read-more" href="service-details.html">Read More</a>
+                                        </div>
                                     </div>
-                                    <div class="service-car"><img src="assets/img/car-1.png" alt="car"></div>
                                 </div>
-                                <div class="service-content">
-                                    <h3><a href="service-details.html">Regular Transport</a></h3>
-                                    <p>Everything your taxi business needs is already here! Ridek made for taxi service
-                                        companies!</p>
-                                    <a class="read-more" href="service-details.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item wow fade-in-bottom" data-wow-delay="400ms">
-                                <div class="service-thumb">
-                                    <img src="assets/img/service-2.jpg" alt="img">
-                                    <div class="service-shape-wrap">
-                                        <div class="service-shape"></div>
-                                    </div>
-                                    <div class="service-car"><img src="assets/img/car-1.png" alt="car"></div>
-                                </div>
-                                <div class="service-content">
-                                    <h3><a href="service-details.html">Airport Transport</a></h3>
-                                    <p>Everything your taxi business needs is already here! Ridek made for taxi service
-                                        companies!</p>
-                                    <a class="read-more" href="service-details.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item wow fade-in-bottom" data-wow-delay="600ms">
-                                <div class="service-thumb">
-                                    <img src="assets/img/service-3.jpg" alt="img">
-                                    <div class="service-shape-wrap">
-                                        <div class="service-shape"></div>
-                                    </div>
-                                    <div class="service-car"><img src="assets/img/car-1.png" alt="car"></div>
-                                </div>
-                                <div class="service-content">
-                                    <h3><a href="service-details.html">Luggage Transport</a></h3>
-                                    <p>Everything your taxi business needs is already here! Ridek made for taxi service
-                                        companies!</p>
-                                    <a class="read-more" href="service-details.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-thumb">
-                                    <img src="assets/img/service-4.jpg" alt="img">
-                                    <div class="service-shape-wrap">
-                                        <div class="service-shape"></div>
-                                    </div>
-                                    <div class="service-car"><img src="assets/img/car-1.png" alt="car"></div>
-                                </div>
-                                <div class="service-content">
-                                    <h3><a href="service-details.html">City Transport</a></h3>
-                                    <p>Everything your taxi business needs is already here! Ridek made for taxi service
-                                        companies!</p>
-                                    <a class="read-more" href="service-details.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-thumb">
-                                    <img src="assets/img/service-5.jpg" alt="img">
-                                    <div class="service-shape-wrap">
-                                        <div class="service-shape"></div>
-                                    </div>
-                                    <div class="service-car"><img src="assets/img/car-1.png" alt="car"></div>
-                                </div>
-                                <div class="service-content">
-                                    <h3><a href="service-details.html">Business Transport</a></h3>
-                                    <p>Everything your taxi business needs is already here! Ridek made for taxi service
-                                        companies!</p>
-                                    <a class="read-more" href="service-details.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="swiper-pagination"></div><!-- Carousel Dots -->
                 </div>
@@ -264,51 +200,27 @@
                     <div class="swiper-outside testi-pagination">
                         <div class="testimonial-carousel">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="testi-item">
-                                        <div class="quote-icon"><i class="las la-quote-right"></i></div>
-                                        <p>Good to have transportation available in places and times it is otherwise
-                                            hard to find, but the app has always been a bit difficult to use especially
-                                            how it works or doesnt with large font phone settings.</p>
-                                        <div class="testi-author">
-                                            <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author">
-                                            </div>
-                                            <div class="author-info">
-                                                <h3>Eredrik Johanson <span>Financial .INC</span></h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="testi-item">
-                                        <div class="quote-icon"><i class="las la-quote-right"></i></div>
-                                        <p>Good to have transportation available in places and times it is otherwise
-                                            hard to find, but the app has always been a bit difficult to use especially
-                                            how it works or doesnt with large font phone settings.</p>
-                                        <div class="testi-author">
-                                            <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author">
-                                            </div>
-                                            <div class="author-info">
-                                                <h3>Eredrik Johanson <span>Financial .INC</span></h3>
+                                @if(isset($testimonial) && $testimonial->count())
+                                    @foreach($testimonial as $value)
+                                        <div class="swiper-slide">
+                                            <div class="testi-item">
+                                                <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                                <p>{{$value->description}}</p>
+                                                <div class="testi-author">
+                                                        <div class="author-thumb">
+                                                        @if($value->image !='' && $value->image)
+                                                            <img src="{{asset('uploads/testimonial/'.$value->image)}}" alt="author">
+                                                        @endif
+                                                        </div>
+                                                    
+                                                    <div class="author-info">
+                                                        <h3>{{$value->name}}</h3>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="testi-item">
-                                        <div class="quote-icon"><i class="las la-quote-right"></i></div>
-                                        <p>Good to have transportation available in places and times it is otherwise
-                                            hard to find, but the app has always been a bit difficult to use especially
-                                            how it works or doesnt with large font phone settings.</p>
-                                        <div class="testi-author">
-                                            <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author">
-                                            </div>
-                                            <div class="author-info">
-                                                <h3>Eredrik Johanson <span>Financial .INC</span></h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="swiper-pagination"></div><!-- Carousel Dots -->
