@@ -52,7 +52,9 @@
             <div class="container">
                 <div class="mid-header-wrap">
                     <div class="site-logo">
-                        <a href=""><img src="{{asset('logo.png')}}" alt="Logo"></a>
+                        @foreach($data1 as $logo)
+                        <a href=""><img src="{{asset('uploads/logo/'.$logo->logo_image)}}" alt="Logo"></a>
+                        @endforeach
                     </div><!--/.site-logo-->
                     <ul class="header-info">
                         <li>
