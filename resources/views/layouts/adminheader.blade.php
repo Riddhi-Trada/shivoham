@@ -101,6 +101,9 @@
     <li class="nav-item">
       <a href="{{route('contact-edit')}}" class="nav-link"><i class="fa fa-phone nav-icon"></i><p>Contact Us</p></a>
     </li>
+     <li class="nav-item">
+      <a href="{{route('admincontactquery')}}" class="nav-link"><i class="fa fa-phone nav-icon"></i><p>Contact Query</p></a>
+    </li>
   </ul>
 </ul>
 

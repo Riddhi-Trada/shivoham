@@ -20,6 +20,8 @@ Route::get('Contact-Us','frontedcontroller@contact')->name('contact');
 Route::get('Gallery','frontedcontroller@gallery')->name('gallery');
 Route::get('Service','frontedcontroller@service')->name('service');
 Route::get('Service-Details','frontedcontroller@servicedetails')->name('servicedetails');
+Route::post('contactquery','frontedcontroller@contactquery')->name('contactquery');
+
 
 Route::group(['middleware'=>'auth'],function(){
 
@@ -29,6 +31,10 @@ Route::post('logo-update','admin\LogoController@update')->name('logo-update');
 
 Route::get('contact-edit','admin\ContactUsController@edit')->name('contact-edit');
 Route::post('contact-update','admin\ContactUsController@update')->name('contact-update');
+
+
+Route::get('Contact-query','admin\ContactUsController@contactquery')->name('admincontactquery');
+Route::get('contactquerydelete/{id}','admin\ContactUsController@contactquerydelete')->name('contactquerydelete');
 
 Route::get('about-us-edit','admin\AboutUsController@edit')->name('about-us-edit');
 Route::post('about-update','admin\AboutUsController@update')->name('about-us-update');
@@ -67,6 +73,8 @@ Route::post('testimonial-store','admin\testimonialcontroller@store')->name('test
 Route::get('testimonial-edit/{id}','admin\testimonialcontroller@edit')->name('testimonial-edit');
 Route::post('testimonial-update/{id}','admin\testimonialcontroller@update')->name('testimonial-update');
 Route::get('testimonial-delete/{id}','admin\testimonialcontroller@delete')->name('testimonial-delete');
+
+
 });
 
 Auth::routes();

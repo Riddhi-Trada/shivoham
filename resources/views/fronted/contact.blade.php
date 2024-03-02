@@ -31,23 +31,29 @@
                 </div>
                 <div class="col-md-6">
                     <div class="contact-form">
-                        <form action="https://html.dynamiclayers.net/dl/ridek/contact.php" method="post" id="ajax_contact" class="form-horizontal">
+                            @if(session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
+                        <form action="{{route('contactquery')}}" method="post" id="ajax_contact" class="form-horizontal">
+                            @csrf
                             <div class="contact-title">
                                 
                                 <h2>Have Any <span>Questions?</span></h2>
                             </div>
                             <div class="contact-form-group">
                                 <div class="form-field">
-                                    <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name" required>
+                                    <input type="text" id="firstname" name="fname" class="form-control" placeholder="First Name" required>
                                 </div>
                                 <div class="form-field">
-                                    <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name" required>
+                                    <input type="text" id="lastname" name="lname" class="form-control" placeholder="Last Name" required>
                                 </div>
                                 <div class="form-field">
                                     <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
                                 </div>
                                 <div class="form-field">
-                                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number" required>
+                                    <input type="text" id="phone" name="number" class="form-control" placeholder="Phone Number" required max="10" min="10">
                                 </div>
                                 <div class="form-field message">
                                     <textarea id="message" name="message" cols="30" rows="4" class="form-control" placeholder="Message" required></textarea>

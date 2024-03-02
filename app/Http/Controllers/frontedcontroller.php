@@ -8,6 +8,7 @@ use App\Testimonial;
 use App\HomepageSlider;
 use App\Services;
 use Illuminate\Http\Request;
+use App\contactquery;
 
 class frontedcontroller extends Controller
 {
@@ -32,6 +33,18 @@ class frontedcontroller extends Controller
     {
         $contact=ContactUs::first();
     	return view('fronted.contact',compact('contact'));
+    }
+
+    public function contactquery(Request $request)
+    {
+        $contactquery=new contactquery();
+        $contactquery->fname=$request->input('fname');
+        $contactquery->lname=$request->input('lname');
+        $contactquery->email=$request->input('email');
+        $contactquery->number=$request->input('number');
+        $contactquery->message=$request->input('message');
+        $contactquery->save();
+        return redirect()->route('contact')->with('message','Inquery Submit Successfully..');
     }
 
     public function gallery()

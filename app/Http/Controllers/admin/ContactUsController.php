@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\ContactUs;
+use App\contactquery;
 
 class ContactUsController extends Controller
 {
@@ -38,5 +39,18 @@ class ContactUsController extends Controller
         } else {
             return redirect()->back()->with('error', trans('Something went wrong, please try again later!'));
         }
+    }
+
+    public function contactquery(Request $request)
+    {
+        $contactquery=contactquery::get();
+        return view('admin.contactquery.index',compact('contactquery'));
+
+    }
+
+    public function contactquerydelete($id)
+    {
+        contactquery::where('id',$id)->delete();
+        return redirect()->route('admincontactquery')->with('error', trans('Data Deleted..'));
     }
 }
